@@ -1,6 +1,34 @@
-# The_Collector - a Sentinel Crawler - Enhanced Blue/Red Team Scraper
-# Based on concepts by The Collector (PRO) 
-
+# ==================================================================
+# PROJECT: The_Collector - Sentinel Crawler / Blue & Red Team Toolkit
+# AUTHOR:  Volkan Sah (Kücükbudak)
+# YEARS:   2008-2025
+#
+# LICENSE: GNU General Public License v3 (GPLv3)
+# ------------------------------------------------------------------
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for details.
+#
+# A copy of the GPLv3 must accompany this distribution.
+#
+# --- MANDATORY GPLv3 REQUIREMENTS ---------------------------------
+# 1. You MUST retain this copyright notice. This code is free, NOT
+#    Public Domain. Removing the author line violates the GPLv3 and
+#    immediately terminates your rights to use this code.
+#
+# 2. If you modify and distribute this code, your version MUST also
+#    be licensed under the GPLv3 — and you MUST release the source.
+#
+# Respect open-source developers. Do not remove or obscure authorship.
+# ------------------------------------------------------------------
+# T H I N K   B E F O R E   Y O U   T Y P E !
+# ==================================================================
 import requests
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
