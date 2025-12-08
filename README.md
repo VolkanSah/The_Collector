@@ -15,12 +15,6 @@ Sentinel is an advanced web crawler for OSINT and red team operations. It collec
 
 ## Installation
 
-```bash
-git clone <repo_url>
-cd <repo_folder>
-pip install -r requirements.txt
-````
-
 Optional dependencies for stealth mode:
 
 ```bash
