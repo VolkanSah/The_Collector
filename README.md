@@ -1,52 +1,89 @@
-# The Collector.py (lite)
-###### RedTeam Black-Python Scripts
-**Warning: This tool is only for educational and ethical hacking purposes. Do not use it for any malicious activities. Use at your own risk.**
+# The_Collector - a Sentinel Crawler
+###### Enhanced Blue/Red Team Scraper
 
-The Collector.py (lite) is a RedTeam Black-Python Script designed to help in finding BAD sites. This script is part of a larger collection and was created to be used with caution. Some functions have been removed to prevent any malicious attacks, but it remains a simple yet powerful script that can be used to scan for bad sites.
+Sentinel is an advanced web crawler for OSINT and red team operations. It collects target site information, detects keywords, and stores results in a SQLite database. Built for both normal reconnaissance and stealthy Tor-based operations.
+
+## Features
+
+- Multi-threaded crawling with configurable depth and concurrency
+- Duplicate content detection via MD5 hashing
+- Keyword detection with context snippets
+- Language detection (optional, via `langdetect`)
+- SQLite database storage for structured results
+- Optional Tor integration for anonymous crawling
+- Configurable delay between requests to respect targets
 
 ## Installation
-To use The Collector.py (lite), you need to have Python 3 installed on your machine, as well as the following Python packages: requests, progress, and BeautifulSoup.
 
-You can install the required packages by running the following command:
+```bash
+git clone <repo_url>
+cd <repo_folder>
+pip install -r requirements.txt
+````
 
-```shell
-pip install requests progress BeautifulSoup4
+Optional dependencies for stealth mode:
+
+```bash
+pip install pysocks langdetect
 ```
-## How it works
-The Collector.py (lite) works by scraping a given URL and all its links, then searching for a specified keyword within the HTML content. If the keyword is found, the URL is added to a list of bad sites.
 
-The script uses the requests package to make HTTP requests, BeautifulSoup to parse the HTML content, and progress to display a progress bar during the scanning process.
+Make sure Tor service or Tor Browser is running for `.onion` crawling.
 
 ## Usage
-To use The Collector.py (lite), simply run the script and provide the starting URL and the keyword you want to search for as command-line arguments:
 
-```shell
-python3 collector.py <starting_url> <keyword>
-```
-For example, to search for the keyword "child abuse" on the website "https://example.com", you would run:
-```shell
-python3 collector.py https://example.com "child abuse"
-```
-For better work! Setup collector.py to your needs and use
+### 1. Normal Mode (OSINT / Info Gathering)
 
-```shell
-python3 collector.py
+Collects information about a target website and stores results in the database.
+
+```bash
+python sentinel_crawler.py --url "https://target-company.com" --keywords "confidential" "password" "admin" --db target_scan.db
 ```
 
-The script will then start scanning the website and all its links for the specified keyword. Any URLs that contain the keyword will be added to the list of bad sites.
+### 2. Darkweb / Stealth Mode (Red Team)
 
-The results are saved to a text file called collector_domainlist.txt in the same directory as the script. The file contains a list of all the visited URLs, along with a label indicating whether the site is a bad site or not.
+For scanning `.onion` addresses or hiding your IP. Make sure Tor is running on port 9050.
+
+```bash
+python sentinel_crawler.py --url "http://exampleonionaddress.onion" --keywords "leak" "database" --tor --delay 2.0
+```
+
+### 3. Data Analysis
+
+Since results are stored in SQLite, you can filter and analyze data easily. Use a tool like [DB Browser for SQLite](https://sqlitebrowser.org/) or a quick Python script:
+
+```python
+import sqlite3
+
+# Quick Check Script
+conn = sqlite3.connect('sentinel_results.db')
+cursor = conn.cursor()
+cursor.execute("SELECT url, context FROM hits WHERE keyword='password'")
+for row in cursor.fetchall():
+    print(f"Found at: {row[0]}\nContext: {row[1]}\n---")
+```
+
+## Configuration
+
+* `--depth`: Maximum crawl depth (default: 2)
+* `--max`: Maximum pages to crawl (default: 100)
+* `--delay`: Delay between requests in seconds (default: 1.0)
+* `--threads`: Number of concurrent threads (default: 5)
+* `--tor`: Enable Tor proxy (127.0.0.1:9050)
+* `--db`: SQLite database filename
+
+## Example
+
+```bash
+python sentinel_crawler.py --url "https://target.com" --keywords "admin" "confidential" --depth 3 --threads 10 --db scan_results.db
+```
+
+## Credits
+
+* **The_Collector** - Sentinel Crawler - Enhanced Blue/Red Team Scraper
+* Based on concepts by The Collector (PRO)
 
 ## Disclaimer
-The Collector.py (lite) is only intended for ethical hacking and educational purposes. Do not use this tool for any illegal activities. The author of this tool is not responsible for any damages caused by the misuse of this tool.
 
-### Use at your own risk! Better with Tor rooted traffic to scan target onion sites!
+Use this tool responsibly. Only scan targets you are authorized to analyze. Misuse may be illegal and can have serious consequences.
 
-### Thank you for your support!
-- If you appreciate my work, please consider [becoming a 'Sponsor'](https://github.com/sponsors/volkansah), giving a :star: to my projects, or following me. 
-### Copyright
-- [VolkanSah on Github](https://github.com/volkansah)
-- [Developer Site](https://volkansah.github.io)
 
-### License
-This project is licensed under the MIT - see the [LICENSE](LICENSE) file for details.
