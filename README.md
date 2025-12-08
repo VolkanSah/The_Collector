@@ -1,5 +1,5 @@
 # The Collector.py (lite)
-###### RedTeam Black-Python Scripts
+###### EDU Version to learn
 **Warning: This tool is only for educational and ethical hacking purposes. Do not use it for any malicious activities. Use at your own risk.**
 
 The Collector.py (lite) is a RedTeam Black-Python Script designed to help in finding BAD sites. This script is part of a larger collection and was created to be used with caution. Some functions have been removed to prevent any malicious attacks, but it remains a simple yet powerful script that can be used to scan for bad sites.
