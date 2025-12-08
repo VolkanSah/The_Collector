@@ -75,9 +75,45 @@ python sentinel_crawler.py --url "https://target.com" --keywords "admin" "confid
 
 * **The_Collector** - Sentinel Crawler - Enhanced Blue/Red Team Scraper
 * Based on concepts by The Collector (PRO)
+* Learn the logic in [lite version](https://github.com/VolkanSah/The_Collector/tree/backup.12/2025)
 
 ## Disclaimer
 
 Use this tool responsibly. Only scan targets you are authorized to analyze. Misuse may be illegal and can have serious consequences.
+
+Respect the copyright. It is provided as a free learning resource under GPLv3.
+
+
+
+## License
+
+This project is licensed under the GNU General Public License v3 (GPLv3).
+You must retain the copyright notice and share modifications under the same license.
+> (Readme.md crafted with the help of AI. Code crafted by Volkan Sah)
+
+
+
+## Your Support
+
+Found this useful?
+
+- ⭐ Star this repository
+- 🐛 Report issues
+- 💡 Suggest improvements
+- 💖 [Sponsor development](https://github.com/sponsors/volkansah)
+
+
+**Stay secure. Stay paranoid. 🔒**
+
+Thank you for your support! ❤️
+
+
+
+### Author
+
+Created by Volkan Sah (Kücükbudak).
+> More privat projects: [https://volkansah.github.io](https://volkansah.github.io)
+
+> Updated on 12.2025
 
 
