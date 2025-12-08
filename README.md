@@ -1,6 +1,5 @@
 # The_Collector - a Sentinel Crawler
-###### Enhanced Blue/Red Team Scraper
-alpha release
+###### Enhanced Blue/Red Team Scraper - alpha release
 
 Sentinel is an advanced web crawler for OSINT and red team operations. It collects target site information, detects keywords, and stores results in a SQLite database. Built for both normal reconnaissance and stealthy Tor-based operations.
 
